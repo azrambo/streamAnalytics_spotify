@@ -67,7 +67,7 @@ schema = {
 
 parsed_schema = parse_schema(schema)
 
-dataset = 'dataset.csv'
+dataset = '/Users/alirammal/Github/streamAnalytics_spotify/milestone1/data/dataset.csv'
 data = pd.read_csv(dataset)
 
 genres = data['track_genre'].value_counts()
@@ -133,4 +133,4 @@ def serialize_data(file_name, records):
 
 file_name = 'synthetic_spotify_data.avro'
 
-serialize_data(file_name, record_count)
+serialize_data(file_name, records)
