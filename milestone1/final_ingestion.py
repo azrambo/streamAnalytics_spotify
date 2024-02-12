@@ -68,12 +68,12 @@ schema = {
 parsed_schema = parse_schema(schema)
 
 dataset = 'dataset.csv'
-data2 = pd.read_csv(dataset)
+data = pd.read_csv(dataset)
 
-genres = data2['track_genre'].value_counts()
+genres = data['track_genre'].value_counts()
 genre_options = genres.index.tolist()
 
-def generate_records(userId, start_time, end_time):
+def generate_records(userId, start_time, end_time, data):
     activity_types = ["PLAY", "PAUSE", "SKIP", "LIKE", "FOLLOW"]
     device_types = ["MOBILE", "DESKTOP", "TABLET", "SMART_SPEAKER"]
     genre = random.choice(genre_options)
@@ -83,11 +83,11 @@ def generate_records(userId, start_time, end_time):
 
     location = fake.country()
 
-    filtered_songs = data2[data2['track_genre'] == genre]
+    filtered_songs = data[data['track_genre'] == genre]
     if not filtered_songs.empty:
         sample = filtered_songs.sample(1).iloc[0]
     else:
-        sample = data2.sample(1).iloc[0]
+        sample = data.sample(1).iloc[0]
 
     record = {
         "userId": userId,
@@ -113,15 +113,23 @@ def generate_records(userId, start_time, end_time):
     return record
 
 
-users =[ { 'userId': str(uuid.uuid1()) } for _ in range(0, no_users) ]
-records = [ generate_records(user['userId'], start_time, end_time) for _ in range(0, record_count) for user in users ]
+def generate_multiple_records(start_time, end_time, no_users, record_count, data):
+    records = []
+    users = [str(uuid.uuid4()) for i in range(no_users)]
+    for user in users:
+        for i in range(record_count):
+            record = generate_records(user, start_time, end_time, data)
+            records.append(record)
+    return records
 
+records = generate_multiple_records(start_time, end_time, no_users, record_count, data)
 records
 
-def serialize_data(file_name, num_records):
+
+def serialize_data(file_name, records): 
     with open(file_name, 'wb') as out:
-        fastavro.writer(out, schema, records)
-    print(f"Generated {record_count} records into {file_name}")
+        fastavro.writer(out, parsed_schema, records)
+    print(f"Generated {len(records)} records into {file_name}")
 
 file_name = 'synthetic_spotify_data.avro'
 
