@@ -1,1 +1,0 @@
-This is the first step of our Stream Analytics Project. The goal is to create an AVRO schema for our spotify wrapped data feed. There is nothing to ambigous just yet, only defining the schema and generating synthetic data so that we can later use it for analytics and actually creating a Wrapped feed.
