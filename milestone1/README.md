@@ -13,7 +13,7 @@ Through AVRO schema design, the data generation attempts to assimilate real-life
 
 ### Dependencies
 
-The dependencies present in the project are listed in the `requirements.txt` which are essential for `main.py` to function:
+The dependencies present in the project are not listed as requirements, but will be installed automatically in `main.py` to function. The dependencies are:
 
 * `fastavro` for schema parsing and data serialization.
 * `Faker` for assistance in synthetic data generation.
@@ -24,13 +24,11 @@ The dependencies present in the project are listed in the `requirements.txt` whi
 
 ### Execution
 - How to run the program:
-    - Download `requirements.txt`, `dataset.csv`, and `main.py`.
-    - Direct to your terminal to install the requirements and then run `main.py`. Make sure the `dataset.csv` file is in the same directory as `main.py`.
+    - Download `dataset.csv`, and `main.py`.
+    - Direct to your terminal and then run `main.py`. Make sure the `dataset.csv` file is in the same directory as `main.py`.
 
 For Unix/Linux/Mac
 ```bash
-echo "Installing dependencies..."
-pip install -r requirements.txt
 echo "Running main script..."
 python main.py
 ```
@@ -38,8 +36,6 @@ python main.py
 For Windows
 ```batch
 @echo off
-echo Installing dependencies...
-pip install -r requirements.txt
 echo Running main script...
 python main.py
 ```
