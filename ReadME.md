@@ -1,4 +1,4 @@
-# Title: Comprehensive Documentation of Music Streaming Data Analysis
+# Comprehensive Documentation of Music Streaming Data Analysis
 
 ## Introduction
 The notebook in question is designed to simulate and analyze user interaction data with a music streaming service, using Apache Kafka for data streaming and Apache Avro for data serialization. The purpose of this analysis is to understand user behaviors and preferences, which can inform decisions in areas such as marketing, product development, and customer engagement.
@@ -193,9 +193,3 @@ To accurately calculate the amount of time a user listened during a session, add
 
 ### Handling Skipped Songs: 
 Adjusting the song length when a song was skipped posed a challenge to make the simulation more realistic, as it required dynamic modification of the data based on user interaction.
-
-
-## Data Analysis and Insights
-
-
-## Conclusion
