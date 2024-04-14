@@ -174,8 +174,6 @@ Managing Avro schemas, particularly ensuring compatibility as schemas evolve wit
 ### Real-time Data Processing: 
 Dealing with the high velocity and volume of data in a streaming context posed challenges, necessitating robust solutions for real-time data ingestion and processing.
 
-### Data Generation:
-
 ### Genre Distribution: 
 A challenge was distributing genre preferences per user without filtering the number of genres from the dataset, which required careful handling to maintain realistic user profiles.
 
@@ -186,7 +184,7 @@ There were issues with location and user_id variables not matching other records
 ### Timestamp Handling: 
 Different formats of timestamps presented difficulties during query execution, complicating the extraction and comparison of time-based data.
 
-### Query Enhancements for Realistic Simulation:
+## Query Enhancements for Realistic Simulation:
 
 ### Time Listened Calculation: 
 To accurately calculate the amount of time a user listened during a session, additional records such as SongStart and SongEnd were necessary. This allowed for the inclusion of listening duration in data groupings.
